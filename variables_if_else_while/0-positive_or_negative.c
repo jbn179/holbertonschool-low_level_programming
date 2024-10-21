@@ -1,14 +1,13 @@
 #include <stdlib.h>
 #include <time.h>
-/* more headers goes there */
 
-/*
- * The output of the program should be:
- * The number, followed by
- * if the number is greater than 0: is positive
- * if the number is 0: is zero
- * if the number is less than 0: is negative
-*/
+/**
+ * main - Entry point of the program
+ *
+ * description: Prints a quote using the printf function
+ * Return: Always 0 (Success)
+ */
+
 int main(void)
 {
 	int n;
