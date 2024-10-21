@@ -5,7 +5,7 @@
 /**
  * main - Entry point of the program
  *
- * description: Prints a quote using the printf function
+ * description: use of lastdigit
  * Return: Always 0 (Success)
  */
 
@@ -15,9 +15,9 @@ int main(void)
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-{
-printf("Last digit of %d is %d ", n, lastdigit);
-}
+
+	printf("Last digit of %d is %d ", n, lastdigit);
+
 if (lastdigit > 5)
 {
 	printf("and is greater than 5\n", n);
