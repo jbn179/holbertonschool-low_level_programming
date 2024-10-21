@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include <stdio.h>
+
 /**
  * main - Entry point of the program
  *
@@ -10,9 +11,11 @@
 int main(void)
 
 {
-int ch;
+char ch;
+
 for (ch = 'a'; ch <= 'z'; ch++)
 	putchar(ch);
 	putchar('\n');
+
 return (0);
 }
