@@ -14,7 +14,7 @@ int digit;
 
 for (digit = '0'; digit <= 'f'; digit++)
 {
-if ((digit <= '9') || (digit >= a))
+if ((digit <= '9') || (digit >= 'a'))
 putchar (digit);
 }
 putchar('\n');
