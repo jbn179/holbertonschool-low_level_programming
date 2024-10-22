@@ -6,7 +6,7 @@
  * _abs - Computes the absolute value of an integer
  * @n: The integer to compute the absolute value of
  *
- * Description: This function calculates the absolute value of the given integer.
+ * Description: This function calculates the absolute value.
  * It returns the non-negative value of n without changing it.
  *
  * Return: The absolute value of n
