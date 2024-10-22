@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * main - Entry point of the program
+ * print_alphabet - prints the alphabet
  *
  * description: prints the alphabet in lowercase, followed by a new line
  * Return: Always 0 (Success)
@@ -28,6 +28,6 @@ _putchar ('\n');
 
 int main(void)
 {
-print_alphabet()
+print_alphabet();
 return (0);
 }
