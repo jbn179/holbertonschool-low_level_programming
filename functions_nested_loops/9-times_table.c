@@ -22,7 +22,7 @@ void times_table(void)
 				_putchar(rs + '0');
 			}
 
-			if (rs < 10 && co != 0)
+			if (rs < 10 && li != 0)
 			{
 				_putchar(',');
 				_putchar(' ');
