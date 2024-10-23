@@ -34,7 +34,7 @@ void times_table(void)
 				_putchar(',');
 				_putchar(' ');
 				_putchar((rs / 10) + '0');
-				_putchar((rs / 10) + '0');
+				_putchar((rs % 10) + '0');
 			}
 		}
 		 _putchar('\n');
