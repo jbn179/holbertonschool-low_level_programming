@@ -15,7 +15,7 @@ void times_table(void)
 	{
 		for (co = 0; co < 10; co++)
 		{
-			rs = li * co
+			rs = li * co;
 
 			if (co == 0)
 			{
