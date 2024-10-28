@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * main - Fizz Buzz
@@ -7,12 +8,12 @@
  * Return: void
  */
 
-in main(void)
+int main(void)
 {
 
 	int i;
 
-	for (i == 1; i <= 100; i++)
+	for (i = 1; i <= 100; i++)
 	{
 		if (i % 3 == 0 && i % 5 != 0)
 		{
@@ -36,6 +37,6 @@ in main(void)
 		}
 
 	}
-	printf("\n")
-	return (void)
+	printf("\n");
+	return (0);
 }
