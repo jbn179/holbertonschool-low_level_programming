@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * reset_to_98 - swaps the values of two integers
+ * swap_int - swaps the values of two integers
  * @a: pointer to an integer
  * @b: pointer to an integer
  * Description: swaps the values of two integers
