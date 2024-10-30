@@ -2,27 +2,36 @@
 #include <stdio.h>
 
 /**
- * puts2 - prints every other character, starting with the first character
+ * puts_half - prints half of a string
  * @str: point the string
- * Description: prints every other character, starting with the first character
+ * Description: prints half of a string
  */
 
-void puts2(char *str)
+void puts_half(char *str)
 {
-	int i, j;
+	int len, i, n;
 
-	i = 0;
+	len = 0;
 
-	while (str[i] != '\0')
+	while (str[len] != '\0')
 	{
-		i++;
+		len++;
 	}
 
-	for (j = 0; j < i; j += 2)
+	if (len % 2 == 0)
 	{
-		_putchar(str[j]);
+		for (i = len / 2; str[i] != '\0'; i++)
+		{
+			_putchar(str[i]);
+		}
 	}
 
+	else
+	{
+		for (n = (len - 1) / 2; n < len - 1; n++)
+		{
+			_putchar(str[n + 1]);
+		}
+	}
 	_putchar('\n');
-
 }
