@@ -10,24 +10,26 @@
  * Return: pointer to dest
  */
 
-char *_strcat(char *dest, char *src)
-{
-	int i, j;
+//Elle concatène (ajoute) une chaîne source à la fin d'une chaîne de destination
+
+char *_strcat(char *dest, char *src)	//La fonction prend deux paramètres :	//dest : pointeur vers la chaîne de destination
+{																				//src : pointeur vers la chaîne source à ajouter
+	int i, j;							//Elle retourne un pointeur vers la chaîne de destination modifiée
 
 	i = 0;
 	j = 0;
 
-	while (dest[i] != '\0')
-		i++;
+	while (dest[i] != '\0')	//Cette boucle parcourt 'dest' jusqu'à trouver le caractère nul de fin de chaîne
+		i++;				//À la fin, i contient l'index du caractère nul de dest
 
-	while (src[j] != '\0')
+	while (src[j] != '\0')	//Cette boucle parcourt chaque caractère de src
 	{
-		dest[i] = src[j];
-		j++;
-		i++;
+		dest[i] = src[j];	//Copie le caractère de src à la fin de dest
+		j++;	//Avance les deux compteurs
+		i++;	//
 	}
 
-	dest[i] = '\0';
+	dest[i] = '\0';	//Ajoute le caractère nul à la fin de la chaîne concaténée
 
-	return (dest);
+	return (dest);	//Retourne un pointeur vers la chaîne de destination modifiée
 }

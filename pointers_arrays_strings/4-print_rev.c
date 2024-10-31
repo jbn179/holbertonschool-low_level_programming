@@ -13,16 +13,16 @@ void print_rev(char *s)
 
 	i = 0;
 
-	while (s[i] != '\0')
+	while (s[i] != '\0') //calcule la longueur d'une chaine de caractères
 	{
 		i++;
 	}
 
 	length = i;
 
-	for (j = length - 1; j >= 0; j--)
-	{
-		_putchar(s[j]);
+	for (j = length - 1; j >= 0; j--) 	//C'est une boucle for qui : Initialise j à length - 1 (le dernier index de la chaîne) 
+	{									//Il parcourt la chaîne de la fin vers le début, affichant chaque caractère.
+		_putchar(s[j]);					//Le résultat est l'affichage de la chaîne en ordre inverse.
 	}
 
 	_putchar('\n');

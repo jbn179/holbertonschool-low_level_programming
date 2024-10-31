@@ -9,17 +9,17 @@
  * Return: (dest)
  */
 
-char *_strcpy(char *dest, char *src)
-{
-	int i = 0;
+char *_strcpy(char *dest, char *src)	//La fonction prend deux arguments :	//char *dest : Un pointeur vers la chaîne de destination
+{																				//char *src : Un pointeur vers la chaîne source
+	int i = 0;							//Elle retourne un pointeur vers la chaîne de destination
 
-	while (src[i] != '\0')
+	while (src[i] != '\0')	//Continue tant qu'on n'a pas atteint la fin de la chaîne source
 	{
-		dest[i] = src[i];
-		i++;
+		dest[i] = src[i];	//Copie chaque caractère de la source vers la destination; copie la valeur de droite vers la gauche
+		i++;				//Incrémente le compteur pour passer au caractère suivant
 	}
 
-	dest[i] = '\0';
+	dest[i] = '\0';	//Ajoute le caractère nul à la fin de la chaîne de destination
 
-	return (dest);
+	return (dest); //Retourne un pointeur vers la chaîne de destination
 }
