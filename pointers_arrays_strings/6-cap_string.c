@@ -16,29 +16,29 @@ int i = 0;
 char spe[13] = {' ', '\t', '\n', ',', ';', '.', '!', '?',
 '"', '(', ')', '{', '}'};
 
-while (str[i] != '\0')
-{
-    int j = 0;
+	while (str[i] != '\0')
+	{
+	int j = 0;
 
-    if (i == 0 && str[i] >= 'a' && str[i] <= 'z')
-    {
-        str[i] -= 32;
-    }
+	if (i == 0 && str[i] >= 'a' && str[i] <= 'z')
+	{
+		str[i] -= 32;
+	}
 
-    while (j < 13)
-    {
-        if (str[i] == spe[j])
-        {
-            if (str[i + 1] >= 'a' && str[i + 1] <= 'z')
-            {
-                str[i + 1] -= 32;
-            }
-            break;
-        }
-        j++;
-    }
-    i++;
-}
+	while (j < 13)
+	{
+		if (str[i] == spe[j])
+		{
+			if (str[i + 1] >= 'a' && str[i + 1] <= 'z')
+			{
+				str[i + 1] -= 32;
+			}
+			break;
+		}
+		j++;
+	}
+	i++;
+	}
 
 return (str);
 }
