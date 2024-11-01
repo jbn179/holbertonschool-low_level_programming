@@ -25,7 +25,7 @@ void rev_string(char *s)
 	for (i = 0; i < length1 / 2; i++)	//La boucle for s'exécute pour la moitié de la longueur de la chaîne
 	{
 		temp = s[i];			//Stocke temporairement le caractère du début.
-		s[i] = s[length2];		// Place le caractère de la fin au début.
+		s[i] = s[length2];		//Place le caractère de la fin au début.
 		s[length2--] = temp;	//Place le caractère du début à la fin et décrémente length2
 	}
 }
