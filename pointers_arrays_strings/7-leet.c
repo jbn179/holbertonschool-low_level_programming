@@ -16,20 +16,20 @@ int i = 0;
 char *let = "aAeEoOtTlL";
 char *num = "4433007711";
 
-while (str[i] != '\0')
-{
-    int j = 0;
-    
-    while (j < 10)
-    {
-        if (str[i] == let[j])
-        {
-            str[i] = num[j];
-            break;
-        }
-        j++;
-    }
-    i++;
-}
+	while (str[i] != '\0')
+	{
+		int j = 0;
+
+		while (j < 10)
+		{
+			if (str[i] == let[j])
+			{
+				str[i] = num[j];
+				break;
+			}
+			j++;
+		}
+		i++;
+	}
 return (str);
 }
