@@ -7,8 +7,7 @@
  * @s1: first string
  * @s2: second string
  * Description: function that concatenates two strings.
- * Return: pointer to newly allocated space in memory
- * containing s1 followed by s2, or NULL on failure
+ * Return: pointer to the new string created (Success), or NULL (Error)
 */
 
 char *str_concat(char *s1, char *s2)
