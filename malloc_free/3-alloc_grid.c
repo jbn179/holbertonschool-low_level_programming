@@ -37,7 +37,8 @@ int **alloc_grid(int width, int height)		// Déclaration de la fonction alloc_gr
 		if (grid[i] == NULL)		// Vérification si l'allocation de la ligne a réussi
 		{
 			return (NULL);		// Si malloc a échoué, on retourne NULL
-								// Note : Il y a un problème ici, car on ne libère pas la mémoire déjà allouée
+
+								//// Note : Il y a un problème ici, car on ne libère pas la mémoire déjà allouée ////
 		}
 
 		for (j = 0; j < width; j++)		// Boucle pour initialiser chaque élément de la ligne à 0
