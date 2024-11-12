@@ -11,17 +11,17 @@
 
 void free_grid(int **grid, int height)
 {
-	int i;
+	int i;		// Déclaration d'une variable entière pour l'itération dans la boucle.
 
-	if (grid == NULL || height <= 0)
+	if (grid == NULL || height <= 0)		// Vérification si la grille est NULL ou si la hauteur est inférieure ou égale à 0.
 	{
-		return;
+		return;		// Si l'une des conditions est vraie, on sort de la fonction sans faire d'autres opérations.
 	}
 
-	for (i = 0; i < height; i++)
+	for (i = 0; i < height; i++)		// Boucle pour libérer chaque ligne de la grille.
 	{
-		free(grid[i]);
+		free(grid[i]);		// Libération de la mémoire allouée pour chaque ligne de la grille.
 	}
 
-	free(grid);
+	free(grid);		// Libération de la mémoire allouée pour le tableau de pointeurs lui-même.
 }

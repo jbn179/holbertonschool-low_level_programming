@@ -10,27 +10,31 @@
  * Return: a pointer to the array, or NULL if it fails or if size is 0
 */
 
-char *create_array(unsigned int size, char c)
+char *create_array(unsigned int size, char c)		    // Déclaration de la fonction create_array
+    													// Prend deux paramètres : size (taille du tableau) et c (caractère d'initialisation)
+    													// Retourne un pointeur vers char (le tableau créé)
 {
-	char *array;
-	unsigned int i;
+						// Déclaration des variables locales :
+	char *array;		// array : pointeur qui contiendra l'adresse du tableau alloué
+	unsigned int i;		// i : variable de boucle pour l'initialisation du tableau
 
-	if (size == 0)
+	if (size == 0)		// Vérification si la taille demandée est 0
 	{
-		return (NULL);
+		return (NULL);		// Si oui, retourne NULL (pas de tableau créé)
 	}
 
-	array = malloc(sizeof(char) * size);
+	array = malloc(sizeof(char) * size);		// Allocation dynamique de mémoire pour le tableau
+												// Utilise malloc pour allouer 'size' fois la taille d'un char
 
-	if (array == NULL)
+	if (array == NULL)		// Vérification si l'allocation a réussi
 	{
-		return (NULL);
+		return (NULL);		// Si malloc a échoué (retourne NULL), on retourne NULL
 	}
 
-	for (i = 0; i < size; i++)
+	for (i = 0; i < size; i++)		// Boucle pour initialiser chaque élément du tableau
 	{
-		array[i] = c;
+		array[i] = c;		// Chaque case du tableau reçoit la valeur du caractère 'c'
 	}
 
-	return (array);
+	return (array);		// Retourne le pointeur vers le tableau créé et initialisé
 }

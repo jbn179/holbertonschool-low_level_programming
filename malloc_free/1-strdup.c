@@ -13,32 +13,37 @@
  * returns NULL if str = NULL
 */
 
-char *_strdup(char *str)
+char *_strdup(char *str)		// Déclaration de la fonction _strdup
+    							// Prend un paramètre str (la chaîne à dupliquer)
+    							// Retourne un pointeur vers char (la nouvelle chaîne dupliquée)
 {
-	char *dup;
-	unsigned int length, i;
+								// Déclaration des variables locales :
+	char *dup;					// dup : pointeur qui contiendra l'adresse de la chaîne dupliquée
+	unsigned int length, i;		// length : pour stocker la longueur de la chaîne d'origine
+								// i : variable de boucle pour la copie des caractères
 
-	if (str == NULL)
+	if (str == NULL)		// Vérification si la chaîne d'entrée est NULL
 	{
-		return (NULL);
+		return (NULL);		// Si oui, retourne NULL (pas de duplication possible)
 	}
 
-	for (length = 0; str[length] ; length++)
+	for (length = 0; str[length] ; length++)		// Boucle pour calculer la longueur de la chaîne d'entrée
 	{
-		;
+		;		// Incrémente length jusqu'à rencontrer le caractère nul '\0'
 	}
 
-	dup = malloc(sizeof(char) * (length + 1));
+	dup = malloc(sizeof(char) * (length + 1));		// Allocation dynamique de mémoire pour la nouvelle chaîne
+    												// Alloue (length + 1) fois la taille d'un char (pour inclure le '\0')
 
-	if (dup == NULL)
+	if (dup == NULL)		// Vérification si l'allocation a réussi
 	{
-		return (NULL);
+		return (NULL);		// Si malloc a échoué (retourne NULL), on retourne NULL
 	}
 
-	for (i = 0; i <= length; i++)
-	{
-		dup[i] = str[i];
-	}
+	for (i = 0; i <= length; i++)		// Boucle pour copier chaque caractère de str dans dup
+	{									// Inclut le caractère nul '\0' (d'où i <= length)
+		dup[i] = str[i];				//
+	}									//
 
-	return (dup);
+	return (dup);		// Retourne le pointeur vers la nouvelle chaîne dupliquée
 }
