@@ -11,22 +11,22 @@
  * if min > max, return NULL if malloc fails, return NULL
 */
 
-int *array_range(int min, int max)
+int *array_range(int min, int max)		// Définition de la fonction array_range qui prend deux entiers comme paramètres et retourne un pointeur vers un entier.
 {
-	int *arr;
-	int i, size;
+	int *arr;			// Déclare un pointeur pour stocker l'adresse du tableau à créer.
+	int i, size;		// Déclare des variables pour l'itération et la taille du tableau.
 
-	if (min > max)
-		return (NULL);
+	if (min > max)			// Si min est supérieur à max, retourne NULL car la plage n'est pas valide.
+		return (NULL);		//
 
-	size = max - min + 1;
+	size = max - min + 1;		// Calcule la taille du tableau (nombre d'entiers dans la plage, inclusif).
 
-	arr = malloc(sizeof(int) * size);
-	if (arr == NULL)
-		return (NULL);
+	arr = malloc(sizeof(int) * size);		// Alloue de la mémoire pour le tableau.
+	if (arr == NULL)						//
+		return (NULL);						// Si l'allocation échoue, retourne NULL.
 
-	for (i = 0; i < size; i++)
-		arr[i] = min + i;
+	for (i = 0; i < size; i++)		// Remplit le tableau avec les valeurs de la plage, de min à max.
+		arr[i] = min + i;			//
 
-	return (arr);
+	return (arr);		// Retourne le pointeur vers le tableau nouvellement créé.
 }

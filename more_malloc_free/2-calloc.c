@@ -11,26 +11,26 @@
  * NULL if nmemb or size is 0, or if malloc fails
 */
 
-void *_calloc(unsigned int nmemb, unsigned int size)
+void *_calloc(unsigned int nmemb, unsigned int size)		// Définition de la fonction _calloc qui prend deux paramètres unsigned int et retourne un pointeur void.
 {
-	void *ptr;
-	unsigned int total_size;
-	unsigned int i;
-	char *char_ptr;
+	void *ptr;						// Déclare un pointeur void pour stocker l'adresse de la mémoire allouée.
+	unsigned int total_size;		// Variable pour stocker la taille totale de la mémoire à allouer.
+	unsigned int i;					// Variable de compteur pour la boucle.
+	char *char_ptr;					// Pointeur char pour parcourir la mémoire allouée octet par octet.
 
-	if (nmemb == 0 || size == 0)
-		return (NULL);
+	if (nmemb == 0 || size == 0)	// Si nmemb ou size est 0, retourne NULL.
+		return (NULL);				//
 
-	total_size = nmemb * size;
+	total_size = nmemb * size;		// Calcule la taille totale de la mémoire à allouer.
 
-	ptr = malloc(total_size);
-	if (ptr == NULL)
-		return (NULL);
+	ptr = malloc(total_size);		// Alloue la mémoire avec malloc.
+	if (ptr == NULL)				//
+		return (NULL);				// Si l'allocation échoue, retourne NULL.
 
-	char_ptr = ptr;
+	char_ptr = ptr;		// Convertit le pointeur void en pointeur char pour pouvoir accéder aux octets individuels.
 
-	for (i = 0; i < total_size; i++)
-		char_ptr[i] = 0;
+	for (i = 0; i < total_size; i++)		// Initialise tous les octets de la mémoire allouée à zéro.
+		char_ptr[i] = 0;					//
 
-	return (ptr);
+	return (ptr);		// Retourne le pointeur vers la mémoire allouée et initialisée.
 }
