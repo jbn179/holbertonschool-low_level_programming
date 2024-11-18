@@ -11,12 +11,12 @@
  * Description: initialize a variable of type struct dog
  */
 
-void init_dog(struct dog *d, char *name, float age, char *owner)
+void init_dog(struct dog *d, char *name, float age, char *owner)		// Définition de la fonction init_dog qui prend un pointeur vers struct dog et les informations du chien comme paramètres.
 {
-	if (d != NULL)
+	if (d != NULL)		// Vérifie si le pointeur d n'est pas NULL pour éviter les erreurs de segmentation.
 	{
-		d->name = name;
-		d->age = age;
-		d->owner = owner;
+		d->name = name;			// Initialise le champ name de la structure pointée par d avec la valeur du paramètre name.
+		d->age = age;			// Initialise le champ age de la structure pointée par d avec la valeur du paramètre age.
+		d->owner = owner;		// Initialise le champ owner de la structure pointée par d avec la valeur du paramètre owner.
 	}
 }
