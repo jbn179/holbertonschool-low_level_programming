@@ -11,37 +11,37 @@
  *         99 on invalid operator, 100 on division/modulo by zero
  */
 
-int main(int argc, char *argv[])
+int main(int argc, char *argv[])		// Déclaration de la fonction main avec les arguments standard argc et argv.
 {
-	int num1, num2, result;
-	int (*operation)(int, int);
+	int num1, num2, result;				// Déclaration des variables pour les opérandes (num1, num2), le résultat,
+	int (*operation)(int, int);			// et un pointeur de fonction pour l'opération à effectuer.
 
-	if (argc != 4)
+	if (argc != 4)		// Vérifie si le nombre d'arguments est correct (4 : nom du programme + 2 opérandes + 1 opérateur).
 	{
-		printf("Error\n");
+		printf("Error\n");		// Si ce n'est pas le cas, affiche "Error" et quitte avec le code 98.
 		exit(98);
 	}
 
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[3]);
+	num1 = atoi(argv[1]);		// Convertit les arguments 1 et 3 (les opérandes) en entiers.
+	num2 = atoi(argv[3]);		//
 
-	operation = get_op_func(argv[2]);
+	operation = get_op_func(argv[2]);		// Utilise la fonction get_op_func pour obtenir le pointeur de fonction correspondant à l'opérateur (argv).
 
-	if (operation == NULL)
-	{
-		printf("Error\n");
-		exit(99);
+	if (operation == NULL)		// Si get_op_func retourne NULL (opérateur invalide), affiche "Error" et quitte avec le code 99.
+	{							//
+		printf("Error\n");		//
+		exit(99);				//
 	}
 
-	if ((argv[2][0] == '/' || argv[2][0] == '%') && num2 == 0)
+	if ((argv[2][0] == '/' || argv[2][0] == '%') && num2 == 0)		// Vérifie si l'opération est une division ou un modulo par zéro.
 	{
-		printf("Error\n");
+		printf("Error\n");		// Si c'est le cas, affiche "Error" et quitte avec le code 100.
 		exit(100);
 	}
 
-	result = operation(num1, num2);
-	printf("%d\n", result);
+	result = operation(num1, num2);		// Effectue l'opération en utilisant le pointeur de fonction et affiche le résultat.
+	printf("%d\n", result);				//
 
-	return (0);
+	return (0);		// Retourne 0 pour indiquer une exécution réussie.
 
 }
