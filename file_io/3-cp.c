@@ -30,8 +30,7 @@ int main(int argc, char *argv[])
  */
 void copy_file(const char *file_from, const char *file_to)
 {
-	int fd_from, fd_to;
-	ssize_t rd, wr;
+	int fd_from, fd_to, r, w;
 	char buffer[1024];
 
 	fd_from = open(file_from, O_RDONLY);
@@ -45,23 +44,26 @@ void copy_file(const char *file_from, const char *file_to)
 		handle_error("Error: Can't write to %s\n", file_to, 99);
 	}
 
-	while ((rd = read(fd_from, buffer, sizeof(buffer))) > 0)
-	{
-		wr = write(fd_to, buffer, rd);
-		if (wr != rd)
+	do {
+		r = read(fd_from, buffer, sizeof(buffer));
+		if (r == -1)
 		{
 			close_file(fd_from);
 			close_file(fd_to);
-			handle_error("Error: Can't write to %s\n", file_to, 99);
+			handle_error("Error: Can't read from file %s\n", file_from, 98);
 		}
-	}
 
-	if (rd == -1)
-	{
-		close_file(fd_from);
-		close_file(fd_to);
-		handle_error("Error: Can't read from file %s\n", file_from, 98);
-	}
+		if (r > 0)
+		{
+			w = write(fd_to, buffer, r);
+			if (w == -1 || w != r)
+			{
+				close_file(fd_from);
+				close_file(fd_to);
+				handle_error("Error: Can't write to %s\n", file_to, 99);
+			}
+		}
+	} while (r > 0);
 
 	close_file(fd_from);
 	close_file(fd_to);
