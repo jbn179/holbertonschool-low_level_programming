@@ -82,7 +82,7 @@ void handle_error(const char *message, const char *file, int exit_code)
 	if (file)
 		dprintf(STDERR_FILENO, message, file);
 	else
-		dprintf(STDERR_FILENO, message);
+		dprintf(STDERR_FILENO, "%s", message);
 
 	exit(exit_code);
 }
