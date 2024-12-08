@@ -30,13 +30,16 @@ int main(int argc, char *argv[])
  */
 void copy_file(const char *file_from, const char *file_to)
 {
-	int fd_from, fd_to, r, w;
+	int fd_from, fd_to;
+	ssize_t r, w;
 	char buffer[1024];
 
+	/* Open source file */
 	fd_from = open(file_from, O_RDONLY);
 	if (fd_from == -1)
 		handle_error("Error: Can't read from file %s\n", file_from, 98);
 
+	/* Open or create destination file */
 	fd_to = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd_to == -1)
 	{
@@ -44,6 +47,7 @@ void copy_file(const char *file_from, const char *file_to)
 		handle_error("Error: Can't write to %s\n", file_to, 99);
 	}
 
+	/* Read from source and write to destination */
 	do {
 		r = read(fd_from, buffer, sizeof(buffer));
 		if (r == -1)
@@ -65,6 +69,7 @@ void copy_file(const char *file_from, const char *file_to)
 		}
 	} while (r > 0);
 
+	/* Close files */
 	close_file(fd_from);
 	close_file(fd_to);
 }
