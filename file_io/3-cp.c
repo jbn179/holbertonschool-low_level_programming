@@ -32,43 +32,39 @@ void copy_file(const char *file_from, const char *file_to)
 {
 	int fd_from, fd_to;
 	ssize_t rd, wr;
-	char *buffer = malloc(1024);
-
-	if (!buffer)
-		handle_error("Error: Can't allocate memory\n", NULL, 99);
+	char buffer[1024];
 
 	fd_from = open(file_from, O_RDONLY);
 	if (fd_from == -1)
-	{
-		free(buffer);
 		handle_error("Error: Can't read from file %s\n", file_from, 98);
-	}
 
 	fd_to = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd_to == -1)
 	{
-		free(buffer);
 		close_file(fd_from);
 		handle_error("Error: Can't write to %s\n", file_to, 99);
 	}
 
-	do {
-		rd = read(fd_from, buffer, 1024);
-		if (rd == -1)
-			break;
+	while ((rd = read(fd_from, buffer, sizeof(buffer))) > 0)
+	{
 		wr = write(fd_to, buffer, rd);
-		if (wr == -1)
-			break;
-	} while (rd > 0);
-
-	free(buffer);
-	close_file(fd_from);
-	close_file(fd_to);
+		if (wr != rd)
+		{
+			close_file(fd_from);
+			close_file(fd_to);
+			handle_error("Error: Can't write to %s\n", file_to, 99);
+		}
+	}
 
 	if (rd == -1)
+	{
+		close_file(fd_from);
+		close_file(fd_to);
 		handle_error("Error: Can't read from file %s\n", file_from, 98);
-	if (wr == -1)
-		handle_error("Error: Can't write to %s\n", file_to, 99);
+	}
+
+	close_file(fd_from);
+	close_file(fd_to);
 }
 
 /**
