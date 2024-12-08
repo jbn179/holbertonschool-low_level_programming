@@ -80,7 +80,7 @@ void close_file(int fd)
 void handle_error(const char *message, const char *file, int exit_code)
 {
 	if (file)
-		dprintf(STDERR_FILENO, "%s %s\n", message, file);
+		dprintf(STDERR_FILENO, message, file);
 	else
 		dprintf(STDERR_FILENO, "%s", message);
 
