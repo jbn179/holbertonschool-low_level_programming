@@ -17,17 +17,17 @@ int main(int argc, char *argv[])
 	char buffer[1024];
 
 	if (argc != 3)
-		handle_error("Usage: cp file_from file_to\n", NULL, 97);
+		handle_error("Usage: cp file_from file_to", NULL, 97);
 
 	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from == -1)
-		handle_error("Error: Can't read from file %s\n", argv[1], 98);
+		handle_error("Error: Can't read from file %s", argv[1], 98);
 
 	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd_to == -1)
 	{
 		close_file(fd_from);
-		handle_error("Error: Can't write to %s\n", argv[2], 99);
+		handle_error("Error: Can't write to %s", argv[2], 99);
 	}
 
 	while ((rd = read(fd_from, buffer, sizeof(buffer))) > 0)
@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 		{
 			close_file(fd_from);
 			close_file(fd_to);
-			handle_error("Error: Can't write to %s\n", argv[2], 99);
+			handle_error("Error: Can't write to %s", argv[2], 99);
 		}
 	}
 
@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 	{
 		close_file(fd_from);
 		close_file(fd_to);
-		handle_error("Error: Can't read from file %s\n", argv[1], 98);
+		handle_error("Error: Can't read from file %s", argv[1], 98);
 	}
 
 	close_file(fd_from);
@@ -80,9 +80,9 @@ void close_file(int fd)
 void handle_error(const char *message, const char *file, int exit_code)
 {
 	if (file)
-		dprintf(STDERR_FILENO, message, file);
+		dprintf(STDERR_FILENO, "%s %s\n", message, file);
 	else
-		dprintf(STDERR_FILENO, "%s", message);
+		dprintf(STDERR_FILENO, "%s\n", message);
 
 	exit(exit_code);
 }
