@@ -1,8 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdio.h>
 
 void handle_error(const char *message, const char *file, int exit_code);
 void close_file(int fd);
@@ -36,13 +32,13 @@ void copy_file(const char *file_from, const char *file_to)
 
 	fd_from = open(file_from, O_RDONLY);
 	if (fd_from == -1)
-		handle_error("Error: Can't read from file %s\n", file_from, 98);
+		handle_error("Error: Can't read from file", file_from, 98);
 
 	fd_to = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd_to == -1)
 	{
 		close_file(fd_from);
-		handle_error("Error: Can't write to %s\n", file_to, 99);
+		handle_error("Error: Can't write to", file_to, 99);
 	}
 
 	do {
@@ -51,9 +47,8 @@ void copy_file(const char *file_from, const char *file_to)
 		{
 			close_file(fd_from);
 			close_file(fd_to);
-			handle_error("Error: Can't read from file %s\n", file_from, 98);
+			handle_error("Error: Can't read from file", file_from, 98);
 		}
-
 		if (r > 0)
 		{
 			w = write(fd_to, buffer, r);
@@ -61,7 +56,7 @@ void copy_file(const char *file_from, const char *file_to)
 			{
 				close_file(fd_from);
 				close_file(fd_to);
-				handle_error("Error: Can't write to %s\n", file_to, 99);
+				handle_error("Error: Can't write to", file_to, 99);
 			}
 		}
 	} while (r > 0);
@@ -92,7 +87,7 @@ void close_file(int fd)
 void handle_error(const char *message, const char *file, int exit_code)
 {
 	if (file)
-		dprintf(STDERR_FILENO, message, file);
+		dprintf(STDERR_FILENO, "%s %s\n", message, file);
 	else
 		dprintf(STDERR_FILENO, "%s", message);
 
